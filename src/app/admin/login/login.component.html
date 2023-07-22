@@ -1,0 +1,48 @@
+  <div class="container">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col text-center">
+        <div class="display-3 mt-4 text-primary">
+          Admin Login
+        </div>
+        <div class="card shadow mt-4">
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col">
+              <form class="example-form mt-4" [formGroup]='loginForm'>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Username</mat-label>
+                  <input matInput placeholder="Username" formControlName='username' [errorStateMatcher]="matcher">
+                  <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                  <mat-error
+                    *ngIf="loginForm.get('username')?.hasError('minlength') && !loginForm.get('username')?.hasError('required')">
+                    Username should be atleast <strong>4 characters </strong>long
+                  </mat-error>
+                  <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+                    Username is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="Password" formControlName='password' [errorStateMatcher]="matcher">
+                  <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                  <mat-error
+                    *ngIf="loginForm.get('password')?.hasError('minlength') && !loginForm.get('password')?.hasError('required')">
+                    Password should be atleast <strong>6 characters </strong>long
+                  </mat-error>
+                  <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                    Password is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+                <button class="btn btn-primary w-100 my-4">Login</button>
+                <a (click)="register()" class="mx-4">Haven't registered yet? Register here</a>
+              </form>
+            </div>
+            <div class="col-2"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
