@@ -1,3 +1,7 @@
+.container{
+  position: relative;
+  top: 30px;
+}
 .example-form {
     // min-width: 150px;
     max-width: 500px;
@@ -14,3 +18,17 @@
     cursor: pointer;
   }
 
+  input{
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  .mat-icon{
+    position: absolute;
+    right: 8px;
+  }
+  
+  a{
+    text-decoration: none;
+  }

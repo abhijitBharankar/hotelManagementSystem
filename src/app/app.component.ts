@@ -22,4 +22,7 @@ export class AppComponent {
   user(){
     this.router.navigateByUrl("/user/login")
   }
+  home(){
+    this.router.navigateByUrl("/home")
+  }
 }

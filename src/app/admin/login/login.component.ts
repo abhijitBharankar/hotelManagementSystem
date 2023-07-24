@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/common/data.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -19,7 +20,7 @@ export class LoginComponent {
 
   loginForm ! : FormGroup
 
-  constructor(private fb: FormBuilder, private router : Router){
+  constructor(private fb: FormBuilder, private router : Router, private ds : DataService){
 
   }
   ngOnInit(){
@@ -41,6 +42,12 @@ export class LoginComponent {
 
 
   register(){
-    this.router.navigateByUrl('/login/register')
+    // this.router.navigateByUrl('/admin/register')
+    this.ds.goRegister('admin')
+  }
+
+
+  login(){
+
   }
 }

@@ -1,12 +1,19 @@
 {
-  "users": [
-  ],
+  "users": [],
   "admin": [
+    {
+      "firstName": "abhijit",
+      "lastName": "bharankar",
+      "username": "falcon",
+      "city": "",
+      "email": "",
+      "password": "abhijit",
+      "confirmPassword": "abhijit",
+      "mobile": "9876543210",
+      "id": 1
+    }
   ],
-  "owner": [
-  ],
-  "hoteldetails": [
-  ],
-  "bookings": [
-  ]
+  "owner": [],
+  "hoteldetails": [],
+  "bookings": []
 }

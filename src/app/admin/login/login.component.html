@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-2"></div>
       <div class="col text-center">
-        <div class="display-3 mt-4 text-primary">
+        <div class="display-5 mt-4 text-primary">
           Admin Login
         </div>
         <div class="card shadow mt-4">
@@ -11,11 +11,13 @@
             <div class="col">
               <form class="example-form mt-4" [formGroup]='loginForm'>
                 <mat-form-field class="example-full-width">
+                  
+                  <mat-icon class="mat-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
                   <mat-label>Username</mat-label>
                   <input matInput placeholder="Username" formControlName='username' [errorStateMatcher]="matcher">
                   <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                   <mat-error
-                    *ngIf="loginForm.get('username')?.hasError('minlength') && !loginForm.get('username')?.hasError('required')">
+                  *ngIf="loginForm.get('username')?.hasError('minlength') && !loginForm.get('username')?.hasError('required')">
                     Username should be atleast <strong>4 characters </strong>long
                   </mat-error>
                   <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
@@ -23,6 +25,7 @@
                   </mat-error>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
+                  <mat-icon class="mat-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="lock"></mat-icon>
                   <mat-label>Password</mat-label>
                   <input matInput placeholder="Password" formControlName='password' [errorStateMatcher]="matcher">
                   <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
@@ -34,8 +37,10 @@
                     Password is <strong>required</strong>
                   </mat-error>
                 </mat-form-field>
-                <button class="btn btn-primary w-100 my-4">Login</button>
-                <a (click)="register()" class="mx-4">Haven't registered yet? Register here</a>
+                <button [disabled]="!loginForm.valid" class="btn btn-primary w-100 my-4">Login</button>
+                <div class="mb-4">
+                  <a (click)="register()" class="mx-4">Don't Have Account? <span class="text-danger">Register here</span></a>
+                </div>
               </form>
             </div>
             <div class="col-2"></div>

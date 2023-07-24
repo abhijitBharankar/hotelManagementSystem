@@ -1,1 +1,173 @@
-<p>register works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col text-center">
+            <div class="display-5 mt-4 text-primary">
+                Admin SignUp
+            </div>
+            <div class="card shadow my-4">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col">
+                        <form class="example-form mt-4" [formGroup]='signupForm'>
+
+                            <div class="row">
+                                <div class="col">
+                                    <!-- firstName -->
+                                    <mat-form-field class="example-full-width">
+                                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Example home icon"
+                                            fontIcon="person_outline"></mat-icon>
+                                        <mat-label>FirstName</mat-label>
+                                        <input matInput placeholder="First Name" formControlName='firstName'
+                                            [errorStateMatcher]="matcher">
+                                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                                        <mat-error
+                                            *ngIf="signupForm.get('firstName')?.hasError('pattern') && !signupForm.get('firstName')?.hasError('required')">
+                                            First Name should contain <strong>Alphabets </strong>only
+                                        </mat-error>
+                                        <mat-error
+                                            *ngIf="signupForm.get('firstName')?.hasError('minlength') && !signupForm.get('firstName')?.hasError('pattern') && !signupForm.get('firstName')?.hasError('required')">
+                                            First Name should be atleast <strong>2 characters </strong>long
+                                        </mat-error>
+                                        <mat-error *ngIf="signupForm.get('firstName')?.hasError('required')">
+                                            First Name is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col">
+                                    <!-- lastName -->
+                                    <mat-form-field class="example-full-width">
+                                        <mat-icon class="mat-icon" aria-hidden="false" aria-label="Example home icon"
+                                            fontIcon="person_outline"></mat-icon>
+                                        <mat-label>Last Name</mat-label>
+                                        <input matInput placeholder="Last Name" formControlName='lastName'
+                                            [errorStateMatcher]="matcher">
+                                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                                        <mat-error
+                                            *ngIf="signupForm.get('lastName')?.hasError('pattern') && !signupForm.get('lastName')?.hasError('required')">
+                                            Last Name should contain <strong>Alphabets </strong>only
+                                        </mat-error>
+                                        <mat-error
+                                            *ngIf="signupForm.get('lastName')?.hasError('minlength') && !signupForm.get('lastName')?.hasError('pattern') && !signupForm.get('lastName')?.hasError('required')">
+                                            Last Name should be atleast <strong>2 characters </strong>long
+                                        </mat-error>
+                                        <mat-error *ngIf="signupForm.get('lastName')?.hasError('required')">
+                                            Last Name is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+
+                            <!-- username -->
+                            <mat-form-field class="example-full-width">
+                                <mat-icon class="mat-icon" aria-hidden="false" aria-label="Example home icon"
+                                    fontIcon="person"></mat-icon>
+                                <mat-label>Username</mat-label>
+                                <input matInput placeholder="Username" formControlName='username'
+                                    [errorStateMatcher]="matcher">
+                                <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                                <mat-error
+                                    *ngIf="signupForm.get('username')?.hasError('minlength') && !signupForm.get('username')?.hasError('pattern') && !signupForm.get('username')?.hasError('required')">
+                                    Username should be atleast <strong>4 characters </strong>long
+                                </mat-error>
+                                <mat-error
+                                    *ngIf="signupForm.get('username')?.hasError('pattern') && !signupForm.get('username')?.hasError('required')">
+                                    Username must not contain <strong>Special Characters</strong>
+                                </mat-error>
+                                <mat-error *ngIf="signupForm.get('username')?.hasError('required')">
+                                    Username is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+
+                            <!-- mobile -->
+                            <mat-form-field class="example-full-width">
+                                <mat-icon class="mat-icon" aria-hidden="false" aria-label="Example home icon"
+                                    fontIcon="call"></mat-icon>
+                                <mat-label>Mobile Number</mat-label>
+                                <input matInput placeholder="Username" formControlName='mobile'
+                                    [errorStateMatcher]="matcher" maxlength="10">
+                                <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                                <mat-error
+                                    *ngIf="signupForm.get('mobile')?.hasError('minlength') && !signupForm.get('mobile')?.hasError('pattern')  && !signupForm.get('mobile')?.hasError('required')">
+                                    Mobile number should be of <strong>10 digits</strong>
+                                </mat-error>
+                                <mat-error
+                                    *ngIf="signupForm.get('mobile')?.hasError('pattern') && !signupForm.get('mobile')?.hasError('required')">
+                                    Mobile must be in <strong>numbers only</strong>
+                                </mat-error>
+
+                                <mat-error *ngIf="signupForm.get('mobile')?.hasError('required')">
+                                    Username is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+
+                            <div class="row">
+                                <div class="col">
+                                    <!-- Password -->
+                                    <mat-form-field class="example-full-width">
+                                        <mat-icon *ngIf="password_visibility_hide" class="mat-icon eye" aria-hidden="false"
+                                            aria-label="Example home icon" fontIcon="visibility"
+                                            (click)="visibility('password')"></mat-icon>
+                                        <mat-icon *ngIf="password_visibility_off_hide" class="mat-icon eye" aria-hidden="false"
+                                            aria-label="Example home icon" fontIcon="visibility_off"
+                                            (click)="visibility_off('password')"></mat-icon>
+                                        <mat-label>Password</mat-label>
+                                        <input matInput placeholder="Password" formControlName='password'
+                                            [errorStateMatcher]="matcher" [type]="passwordInputType">
+                                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                                        <mat-error
+                                            *ngIf="signupForm.get('password')?.hasError('minlength') && !signupForm.get('password')?.hasError('required')">
+                                            Password should be atleast <strong>6 characters </strong>long
+                                        </mat-error>
+                                        <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+                                            Password is <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col">
+                                    <!-- confirm password -->
+                                    <mat-form-field class="example-full-width">
+                                        <mat-icon *ngIf="confirm_visibility_hide" class="mat-icon eye" aria-hidden="false"
+                                            aria-label="Example home icon" fontIcon="visibility"
+                                            (click)="visibility('confirmPassword')"></mat-icon>
+                                        <mat-icon *ngIf="confirm_visibility_off_hide" class="mat-icon eye" aria-hidden="false"
+                                            aria-label="Example home icon" fontIcon="visibility_off"
+                                            (click)="visibility_off('confirmPassword')"></mat-icon>
+                                        <mat-label>Confirm Password</mat-label>
+                                        <input [type]="confirmPasswordInputType" matInput placeholder="Confirm Password" formControlName='confirmPassword'
+                                            [errorStateMatcher]="matcher" (keyup)="confirmPassword()">
+                                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                                        <mat-error *ngIf="signupForm.errors?.['passwordMismatchError']"><strong>matched
+                                            </strong>
+                                        </mat-error>
+                                        <mat-error
+                                            *ngIf="signupForm.get('confirmPassword')?.hasError('minlength') && !signupForm.get('confirmPassword')?.hasError('required')">
+                                            Password should be atleast <strong>6 characters </strong>long
+                                        </mat-error>
+                                        <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
+                                            Password is <strong>required</strong>
+                                        </mat-error>
+                                        <span *ngIf="passwordMatched" class="text-danger"> Password is not matched</span>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            
+
+
+                            <button class="btn btn-primary w-100 my-4"
+                                (click)="register()">Register</button>
+                            <div class="mb-4">
+                                <a (click)="login()" class="mx-4">Don't Have Account? <span class="text-danger">Login
+                                        here</span></a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
