@@ -1,21 +1,43 @@
-    <nav class="navbar navbar-expand-lg bg-body-secondary fixed-top">
-        <div class="container-fluid">
-        <a class="navbar-brand text-primary" (click)="home()">Hotel Management System</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            
-            </ul>
-            <button class="btn btn-success mx-2" (click)="admin()">Admin</button>
-            <button class="btn btn-danger mx-2" (click)="owner()">Owner</button>
-            <button class="btn btn-primary mx-2" (click)="user()">User</button>
+<nav class="navbar navbar-expand-lg bg-body-secondary fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand text-primary" (click)="home()">Hotel Management System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
+      
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      
+        <!-- login or register -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Login or Register
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
         </div>
-        </div>
-    </nav>
-    <router-outlet></router-outlet>
+
+        <button class="btn btn-success mx-2" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          (click)="admin()">Admin</button>
+
+        <button class="btn btn-warning mx-2" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          (click)="owner()">Owner</button>
+
+        <button class="btn btn-primary mx-2" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          (click)="user()">User</button>
+
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,15 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ApiService } from 'src/app/api.service';
 import { DataService } from 'src/app/common/data.service';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 @Component({
   selector: 'app-login',
@@ -18,36 +13,56 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent {
 
-  loginForm ! : FormGroup
+  loginForm !: FormGroup
+  adminsData!: any
+  validAdmin: boolean = false;
 
-  constructor(private fb: FormBuilder, private router : Router, private ds : DataService){
+  constructor(private fb: FormBuilder, private router: Router, private ds: DataService, private apiService: ApiService, private toastr: ToastrService) {
 
   }
-  ngOnInit(){
+  ngOnInit() {
     this.loginFormControl()
   }
 
-  loginFormControl(){
+  loginFormControl() {
     this.loginForm = this.fb.group({
-      username : ['',[Validators.required, Validators.minLength(4)]],
+      username: ['', [Validators.required, Validators.minLength(4)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
-  // emailFormControl = new FormControl('', [
-  //   Validators.required,
-  //   Validators.email,
-  // ]);
-
-  matcher = new MyErrorStateMatcher();
 
 
-  register(){
-    // this.router.navigateByUrl('/admin/register')
-    this.ds.goRegister('admin')
+
+  register() {
+    this.ds.goRegister()
   }
 
 
-  login(){
+  login() {
+    this.apiService.getApi().subscribe(resp => {
 
+      this.adminsData = resp
+    })
+
+    if (this.adminsData) {
+      this.isValidUser()
+      if (this.validAdmin) {
+        this.toastr.success("Successfully Logged in")
+        this.router.navigateByUrl("/admin/home")
+      } else {
+        this.toastr.error("invalid username or password")
+        this.router.navigateByUrl("/admin/login")
+      } 
+    }
+  }
+
+  isValidUser() {
+    this.adminsData.forEach((element: any) => {
+      // console.log(element.username, element.password);
+      if (element.username === this.loginForm.value.username && element.password === this.loginForm.value.password) {
+        this.validAdmin = true
+      }
+    });
+    return
   }
 }

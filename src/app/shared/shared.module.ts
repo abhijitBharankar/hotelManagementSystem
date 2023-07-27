@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -12,13 +13,15 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    ToastrModule
   ],
   exports  : [
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    ToastrModule
   ]
 })
 export class SharedModule { }

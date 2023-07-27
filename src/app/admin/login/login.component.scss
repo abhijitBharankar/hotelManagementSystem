@@ -16,6 +16,7 @@
 
   a{
     cursor: pointer;
+    text-decoration: none;
   }
 
   input{
@@ -23,12 +24,13 @@
     outline: none;
     background: transparent;
   }
-
-  .mat-icon{
-    position: absolute;
-    right: 8px;
-  }
   
-  a{
-    text-decoration: none;
+  .card{
+    background-size: cover;
+    width: 100%;
+    // height: 100vh;
+  }
+
+  .white{
+    color: white
   }

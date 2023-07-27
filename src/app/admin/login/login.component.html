@@ -1,20 +1,20 @@
-  <div class="container">
+  <div class="container mt-4">
     <div class="row">
       <div class="col-2"></div>
       <div class="col text-center">
-        <div class="display-5 mt-4 text-primary">
-          Admin Login
-        </div>
-        <div class="card shadow mt-4">
+        <div class="card shadow mt-4" [ngStyle]="{backgroundImage:'url(/assets/images/adminSign.jpg)'}">
+          <div class="display-5 mt-4 white">
+            Admin Login
+          </div>
           <div class="row">
             <div class="col-2"></div>
             <div class="col">
               <form class="example-form mt-4" [formGroup]='loginForm'>
                 <mat-form-field class="example-full-width">
                   
-                  <mat-icon class="mat-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+                  <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
                   <mat-label>Username</mat-label>
-                  <input matInput placeholder="Username" formControlName='username' [errorStateMatcher]="matcher">
+                  <input matInput placeholder="Username" formControlName='username'>
                   <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                   <mat-error
                   *ngIf="loginForm.get('username')?.hasError('minlength') && !loginForm.get('username')?.hasError('required')">
@@ -25,9 +25,9 @@
                   </mat-error>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <mat-icon class="mat-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="lock"></mat-icon>
+                  <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon" fontIcon="visibility"></mat-icon>
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Password" formControlName='password' [errorStateMatcher]="matcher">
+                  <input matInput placeholder="Password" formControlName='password'>
                   <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                   <mat-error
                     *ngIf="loginForm.get('password')?.hasError('minlength') && !loginForm.get('password')?.hasError('required')">
@@ -37,9 +37,9 @@
                     Password is <strong>required</strong>
                   </mat-error>
                 </mat-form-field>
-                <button [disabled]="!loginForm.valid" class="btn btn-primary w-100 my-4">Login</button>
+                <button (click)="login()" [disabled]="!loginForm.valid" class="btn btn-primary w-100 my-4">Login</button>
                 <div class="mb-4">
-                  <a (click)="register()" class="mx-4">Don't Have Account? <span class="text-danger">Register here</span></a>
+                  <a (click)="register()" class="mx-4 white">Don't Have Account? <span class="text-warning">Register here</span></a>
                 </div>
               </form>
             </div>

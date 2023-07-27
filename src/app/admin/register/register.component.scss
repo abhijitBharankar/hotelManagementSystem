@@ -1,38 +1,42 @@
-.container{
+.container {
   position: relative;
   top: 30px;
 }
+
+.card{
+  background-size: cover;
+  width: 100%;
+}
+
 .example-form {
-    // min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-    // margin: 0 auto;
-  }
-  
+  max-width: 500px;
+  width: 100%;
+}
 
-  a{
-    cursor: pointer;
-  }
+.example-full-width {
+  width: 100%;
+}
 
-  input{
-    border: none;
-    outline: none;
-    background: transparent;
-  }
+.white{
+  color: white;
+}
 
-  .mat-icon{
-    position: absolute;
-    right: 8px;
-  }
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
 
-  a{
-    text-decoration: none;
-  }
+input {
+  border: none;
+  outline: none;
+  background: transparent;
+}
 
-  .eye{
-    cursor: pointer;
-  }
+.mat-icon {
+  position: absolute;
+  right: 8px;
+}
+
+.eye {
+  cursor: pointer;
+}

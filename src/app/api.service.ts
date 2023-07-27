@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from './common/data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +10,20 @@ export class ApiService {
 
   url = 'http://localhost:3000/'
 
-  constructor(private httpClient: HttpClient, private router : Router ) { }
+  constructor(private httpClient: HttpClient, private router : Router , private ds : DataService) { }
 
-  postApi(endpoint:any,formData: any){
-    let url = this.url + endpoint
+  postApi(formData: any){
+    let url = this.url + this.ds.journey 
     return this.httpClient.post(url,formData)
   }
 
-  getApi(endpoint:any){
-    let url = this.url + endpoint
+  getApi(){
+    let url = this.url + this.ds.journey
     return this.httpClient.get(url)
   }
 
-  deleteApi(endpoint:any){
-    let url = this.url + endpoint
+  deleteApi(){
+    let url = this.url + this.ds.journey
     return this.httpClient.delete(url)
   }
 }

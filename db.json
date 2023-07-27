@@ -1,19 +1,114 @@
 {
-  "users": [],
-  "admin": [
+  "user": [
     {
       "firstName": "abhijit",
       "lastName": "bharankar",
+      "username": "abhiFalcon",
+      "email": "abhi@gmail.con",
+      "password": "abhijit",
+      "confirmPassword": "abhijit",
+      "mobile": "7895622225",
+      "passwordNew": "newPass",
+      "id": 1
+    },
+    {
+      "firstName": "shubham",
+      "lastName": "shadve",
+      "username": "shubham",
+      "email": "shubham@has.com",
+      "password": "shubham",
+      "confirmPassword": "shubham",
+      "mobile": "7884646415",
+      "passwordNew": "newPass",
+      "id": 2
+    }
+  ],
+  "admin": [
+    {
+      "firstName": "Abhijit",
+      "lastName": "Bharankar",
       "username": "falcon",
-      "city": "",
-      "email": "",
+      "email": "abhi@gmail.com",
       "password": "abhijit",
       "confirmPassword": "abhijit",
       "mobile": "9876543210",
       "id": 1
+    },
+    {
+      "firstName": "Navya",
+      "lastName": "Bharankar",
+      "username": "navya",
+      "email": "navya@gmail.com",
+      "password": "navya123",
+      "confirmPassword": "navya123",
+      "mobile": "8975463212",
+      "id": 2
+    },
+    {
+      "firstName": "Sumit",
+      "lastName": "Thombare",
+      "username": "sumit",
+      "email": "sumit@gmail.com",
+      "password": "sumit123",
+      "confirmPassword": "sumit123",
+      "mobile": "8675223541",
+      "id": 3
+    },
+    {
+      "firstName": "rohit",
+      "lastName": "thombare",
+      "username": "rohit",
+      "email": "rohit@gmail.com",
+      "password": "rohit123",
+      "confirmPassword": "rohit123",
+      "mobile": "7896452135",
+      "id": 4
+    },
+    {
+      "firstName": "abhijit",
+      "lastName": "bharankar",
+      "username": "falconab",
+      "email": "abhi@gmail.com",
+      "password": "abhojit",
+      "confirmPassword": "abhijit",
+      "mobile": "5525288892",
+      "passwordNew": "newPass",
+      "id": 5
+    },
+    {
+      "firstName": "shubham",
+      "lastName": "dhadve",
+      "username": "shubham",
+      "email": "shubham@gmail.com",
+      "password": "shubham",
+      "confirmPassword": "shubham",
+      "mobile": "7895223656",
+      "passwordNew": "newPass",
+      "id": 6
     }
   ],
-  "owner": [],
+  "owner": [
+    {
+      "firstName": "Abhijit",
+      "lastName": "bharankar",
+      "username": "falconab",
+      "email": "abhi@gmail.com",
+      "password": "abhijit",
+      "confirmPassword": "abhijit",
+      "mobile": "8875652366",
+      "id": 1
+    },
+    {
+      "firstName": "shubham",
+      "lastName": "dhadve",
+      "username": "shubham",
+      "email": "shubham@gmail.com",
+      "password": "shubham",
+      "confirmPassword": "shubham",
+      "mobile": "5646461631",
+      "id": 2
+    }
+  ],
   "hoteldetails": [],
   "bookings": []
 }
