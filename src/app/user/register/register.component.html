@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container mt-4">
     <div class="row">
         <div class="col-2"></div>
         <div class="col text-center">
-            <div class="display-5 mt-4 text-primary">
-                User SignUp
-            </div>
-            <div class="card shadow my-4"  [ngStyle]="{backgroundImage:'url(/assets/images/userSign.jpg)'}">
+            <div class="card shadow my-4" [ngStyle]="{backgroundImage:'url(/assets/images/userSign.jpg)'}">
+                <div class="display-5 mt-4 white">
+                    User SignUp
+                </div>
                 <div class="row">
                     <div class="col-2"></div>
                     <div class="col">
@@ -119,14 +119,15 @@
                                 <div class="col">
                                     <!-- Password -->
                                     <mat-form-field class="example-full-width">
-                                        <mat-icon *ngIf="password_visibility_hide" class="mat-icon eye" aria-hidden="false"
-                                            aria-label="Example home icon" fontIcon="visibility"
+                                        <mat-icon *ngIf="password_visibility_hide" class="mat-icon eye"
+                                            aria-hidden="false" aria-label="Example home icon" fontIcon="visibility"
                                             (click)="visibility('password')"></mat-icon>
-                                        <mat-icon *ngIf="password_visibility_off_hide" class="mat-icon eye" aria-hidden="false"
-                                            aria-label="Example home icon" fontIcon="visibility_off"
+                                        <mat-icon *ngIf="password_visibility_off_hide" class="mat-icon eye"
+                                            aria-hidden="false" aria-label="Example home icon" fontIcon="visibility_off"
                                             (click)="visibility_off('password')"></mat-icon>
                                         <mat-label>Password</mat-label>
-                                        <input matInput placeholder="Password" formControlName='password' [type]="passwordInputType" [value]= 'passwordValue'>
+                                        <input matInput placeholder="Password" formControlName='password'
+                                            [type]="passwordInputType" [value]='passwordValue'>
                                         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                                         <mat-error
                                             *ngIf="signupForm.get('password')?.hasError('minlength') && !signupForm.get('password')?.hasError('required')">
@@ -140,14 +141,15 @@
                                 <div class="col">
                                     <!-- confirm password -->
                                     <mat-form-field class="example-full-width">
-                                        <mat-icon *ngIf="confirm_visibility_hide" class="mat-icon eye" aria-hidden="false"
-                                            aria-label="Example home icon" fontIcon="visibility"
+                                        <mat-icon *ngIf="confirm_visibility_hide" class="mat-icon eye"
+                                            aria-hidden="false" aria-label="Example home icon" fontIcon="visibility"
                                             (click)="visibility('confirmPassword')"></mat-icon>
-                                        <mat-icon *ngIf="confirm_visibility_off_hide" class="mat-icon eye" aria-hidden="false"
-                                            aria-label="Example home icon" fontIcon="visibility_off"
+                                        <mat-icon *ngIf="confirm_visibility_off_hide" class="mat-icon eye"
+                                            aria-hidden="false" aria-label="Example home icon" fontIcon="visibility_off"
                                             (click)="visibility_off('confirmPassword')"></mat-icon>
                                         <mat-label>Confirm Password</mat-label>
-                                        <input [type]="confirmPasswordInputType" matInput placeholder="Confirm Password" formControlName='confirmPassword' [value] ='confirmPasswordValue'>
+                                        <input [type]="confirmPasswordInputType" matInput placeholder="Confirm Password"
+                                            formControlName='confirmPassword' [value]='confirmPasswordValue'>
 
 
                                         <!-- <mat-error class="error" *ngIf="signupForm.get('confirmPassword')?.errors?.['Err'] && !signupForm.get('confirmPassword')?.hasError('minlength') && !signupForm.get('confirmPassword')?.hasError('required')" > Password not matched</mat-error> -->
@@ -161,16 +163,15 @@
                                         <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
                                             Password is <strong>required</strong>
                                         </mat-error>
-                                        
 
                                     </mat-form-field>
                                 </div>
                             </div>
-                            
 
 
-                            <input type="text" placeholder="password" formControlName = "passwordNew">
-                            <mat-error *ngIf="signupForm.get('passwordNew')?.errors?.['Err']">password error</mat-error>
+
+                            <!-- <input type="text" placeholder="password" formControlName="passwordNew">
+                            <mat-error *ngIf="signupForm.get('passwordNew')?.errors?.['Err']">password error</mat-error> -->
 
                             <!-- <label for="name" class="col-sm-2">Name</label>
                             <div class="col-sm-10">
@@ -178,10 +179,11 @@
                                 <span class="error" *ngIf="signupForm.get('name')?.errors?.['Err']"> Name should not contain copy word</span>
                             </div> -->
 
-                            <button [disabled]="!signupForm.valid" class="btn btn-primary w-100 my-4"
+                            <button [disabled]="!signupForm.valid" class="btn btn-primary w-100 my-2"
                                 (click)="register()">Register</button>
                             <div class="mb-4">
-                                <a (click)="login()" class="mx-4">Don't Have Account? <span class="text-danger">Login
+                                <a (click)="login()" class="mx-4 white">Don't Have Account? <span
+                                        class="text-warning">Login
                                         here</span></a>
                             </div>
 

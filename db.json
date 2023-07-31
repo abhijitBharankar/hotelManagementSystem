@@ -107,8 +107,96 @@
       "confirmPassword": "shubham",
       "mobile": "5646461631",
       "id": 2
+    },
+    {
+      "firstName": "rohit",
+      "lastName": "thombare",
+      "username": "rohit",
+      "email": "rohit@gmail.com",
+      "password": "rohit123",
+      "confirmPassword": "rohit123",
+      "mobile": "7895232566",
+      "id": 3
     }
   ],
-  "hoteldetails": [],
+  "hoteldetails": [
+    {
+      "ownerUsername": "rohit",
+      "ownerMobile": "4754546464",
+      "hotelName": "welcome hotel",
+      "hotelAddress": "mumbai maharashtra",
+      "hotelMobile": "6879879464",
+      "hotelMenu": "Veg",
+      "roomAvailable": "5",
+      "ownerPass": "rohit123",
+      "id": 1
+    },
+    {
+      "ownerUsername": "suraj",
+      "ownerMobile": "7776434646",
+      "hotelName": "MHJ hotel",
+      "hotelAddress": "goregoan, mumbai",
+      "hotelMobile": "7874646464",
+      "hotelMenu": "Non-Veg",
+      "roomAvailable": "20",
+      "ownerPass": "suraj123",
+      "id": 2
+    },
+    {
+      "ownerUsername": "falconab",
+      "ownerMobile": "8875652366",
+      "hotelName": "RC Hotel",
+      "hotelAddress": "mumbai",
+      "hotelMobile": "7897964646",
+      "hotelMenu": "Veg",
+      "roomAvailable": "21",
+      "ownerPass": "abhijit",
+      "id": 3
+    },
+    {
+      "ownerUsername": "falconab",
+      "ownerMobile": "8875652366",
+      "hotelName": "TAJ Hotel",
+      "hotelAddress": "mumbai",
+      "hotelMobile": "7897964646",
+      "hotelMenu": "Non-Veg",
+      "roomAvailable": "11",
+      "ownerPass": "abhijit",
+      "id": 4
+    },
+    {
+      "ownerUsername": "falconab",
+      "ownerMobile": "8875652366",
+      "hotelName": "MK Hotel New",
+      "hotelAddress": "mumbai",
+      "hotelMobile": "7796464654",
+      "hotelMenu": "Veg & Non-Veg",
+      "roomAvailable": "10",
+      "ownerPass": "abhijit",
+      "id": 6
+    },
+    {
+      "ownerUsername": "falconab",
+      "ownerMobile": "8875652366",
+      "hotelName": "Paradise Hotel",
+      "hotelAddress": "Malad Mumbai",
+      "hotelMobile": "8855464646",
+      "hotelMenu": "Veg & Non-Veg",
+      "roomAvailable": "14",
+      "ownerPass": "abhijit",
+      "id": 7
+    },
+    {
+      "ownerUsername": "falconab",
+      "ownerMobile": "8875652366",
+      "hotelName": "Hotel Sudarshan",
+      "hotelAddress": "Bandra Mumbai",
+      "hotelMobile": "8946464646",
+      "hotelMenu": "Veg",
+      "roomAvailable": "25",
+      "ownerPass": "abhijit",
+      "id": 8
+    }
+  ],
   "bookings": []
 }

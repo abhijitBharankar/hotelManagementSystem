@@ -13,15 +13,15 @@ import { DataService } from 'src/app/common/data.service';
 
 export class LoginComponent {
 
-  loginForm !: FormGroup
-  adminsData!: any
-  validAdmin: boolean = false;
+  loginForm !: FormGroup;
+  ownersData!: any;
+  validOwner: boolean = false;
 
   constructor(private fb: FormBuilder, private router: Router, private ds: DataService, private apiService: ApiService, private toastr: ToastrService) {
 
   }
   ngOnInit() {
-    this.loginFormControl()
+    this.loginFormControl();
   }
 
   loginFormControl() {
@@ -34,33 +34,33 @@ export class LoginComponent {
 
 
   register() {
-    this.ds.goRegister()
+    this.ds.goRegister();
   }
 
 
   login() {
     this.apiService.getApi().subscribe(resp => {
-
-      this.adminsData = resp
+      this.ownersData = resp;
     })
-
-    if (this.adminsData) {
-      this.isValidUser()
-      if (this.validAdmin) {
-        this.toastr.success("Successfully Logged in")
-        this.router.navigateByUrl("/owner/home")
+    if (this.ownersData) {
+      this.isValidOwner();
+      if (this.validOwner) {
+        this.toastr.success("Successfully Logged in");
+        this.router.navigateByUrl("/owner/home");
       } else {
-        this.toastr.error("invalid username or password")
-        this.router.navigateByUrl("/owner/login")
+        this.toastr.error("Invalid Username or Password");
+        this.router.navigateByUrl("/owner/login");
       } 
     }
   }
 
-  isValidUser() {
-    this.adminsData.forEach((element: any) => {
-      // console.log(element.username, element.password);
+  isValidOwner() {
+    this.ownersData.forEach((element: any) => {
       if (element.username === this.loginForm.value.username && element.password === this.loginForm.value.password) {
-        this.validAdmin = true
+        this.validOwner = true;
+        this.ds.ownerUsername = element.username;
+        this.ds.ownerPassword = element.password;
+        this.ds.ownerMobile = element.mobile;
       }
     });
     return

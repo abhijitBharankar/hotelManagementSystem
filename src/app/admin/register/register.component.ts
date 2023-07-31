@@ -28,7 +28,7 @@ export class RegisterComponent {
   confirm_visibility_off_hide: boolean = false
   
   passwordValue!:any;
-  confirmPasswordValue = "";
+  confirmPasswordValue! :any;
 
 
   constructor(private fb: FormBuilder, private ds: DataService, private apiService: ApiService, private router: Router, private toastr: ToastrService) {
@@ -58,7 +58,11 @@ export class RegisterComponent {
 
   passwordValidation(inp:any){
     console.log(inp.value);
-    // this.confirmPasswordValue = inp.value
+    // console.log(this.signupForm.value.confirmPassword);
+
+    // if(this.signupForm.value.confirmPassword){
+    //   this.confirmPasswordValue = this.signupForm.value.confirmPassword
+    // }
     // console.log(this.passwordValue);
     // var isErr = false
     // if(this.passwordValue !== inp.value){

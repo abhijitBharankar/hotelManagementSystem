@@ -1,0 +1,23 @@
+.top {
+    margin-top: 80px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {
+    background-color: rgb(178, 210, 255);
+}
+
+.actionButtons button {
+    height: 35px;
+    width: 35px;
+}
+.hotelTable{
+    display: flex;
+    justify-content: center;
+}

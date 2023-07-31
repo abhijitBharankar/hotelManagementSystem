@@ -1,0 +1,162 @@
+<div class="container text-center">
+    <h1 *ngIf="!hotelUpdate" mat-dialog-title class="text-primary">New Hotel registration</h1>
+    <h1 *ngIf="hotelUpdate" mat-dialog-title class="text-primary">Update Hotel Details</h1>
+    <div mat-dialog-content>
+        <form action="" [formGroup]="hotelForm">
+
+
+            <div class="row">
+                <div class="col">
+                    <!-- owner username -->
+                    <mat-form-field class="example-full-width">
+                        <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon"
+                            fontIcon="person"></mat-icon>
+                        <mat-label>Owner Username</mat-label>
+                        <input matInput placeholder="Username" formControlName='ownerUsername'>
+                        <mat-error
+                            *ngIf="hotelForm.get('ownerUsername')?.hasError('minlength') && !hotelForm.get('ownerUsername')?.hasError('required')">
+                            Username should be atleast <strong>4 characters </strong>long
+                        </mat-error>
+                        <mat-error *ngIf="hotelForm.get('ownerUsername')?.hasError('required')">
+                            Username is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <!-- owner Mobile -->
+
+                    <mat-form-field class="example-full-width">
+                        <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon"
+                            fontIcon="phone"></mat-icon>
+                        <mat-label>Owner Mobile</mat-label>
+                        <input matInput placeholder="Owner Mobile" formControlName='ownerMobile' maxlength="10">
+                        <mat-error
+                            *ngIf="hotelForm.get('ownerMobile')?.hasError('minlength') && !hotelForm.get('ownerMobile')?.hasError('pattern') && !hotelForm.get('ownerMobile')?.hasError('required')">
+                            Please enter <strong>10 digits </strong>mobile number
+                        </mat-error>
+                        <mat-error
+                            *ngIf="hotelForm.get('ownerMobile')?.hasError('pattern') && !hotelForm.get('ownerMobile')?.hasError('required')">
+                            Enter <strong>Valid</strong> mobile number
+                        </mat-error>
+
+                        <mat-error *ngIf="hotelForm.get('ownerMobile')?.hasError('required')">
+                            Mobile number is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+
+            <!-- hotelName -->
+            <mat-form-field class="example-full-width">
+                <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon"
+                    fontIcon="store_mall_directory"></mat-icon>
+                <mat-label>Hotel Name</mat-label>
+                <input matInput placeholder="Hotel Name" formControlName='hotelName'>
+                <mat-error
+                    *ngIf=" hotelForm.get('hotelName')?.hasError('pattern') && !hotelForm.get('hotelName')?.hasError('required')">
+                    <strong>Special Characters</strong> not allowed
+                </mat-error>
+                <mat-error *ngIf="hotelForm.get('hotelName')?.hasError('required')">
+                    Hotel Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- hotel address -->
+
+            <mat-form-field class="example-full-width">
+                <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon" fontIcon="room"></mat-icon>
+                <mat-label>Hotel Address</mat-label>
+                <input matInput placeholder="Hotel Address" formControlName='hotelAddress'>
+                <mat-error
+                    *ngIf=" hotelForm.get('hotelAddress')?.hasError('pattern') && !hotelForm.get('hotelAddress')?.hasError('required')">
+                    <strong>Special Characters</strong> not allowed
+                </mat-error>
+                <mat-error *ngIf="hotelForm.get('hotelAddress')?.hasError('required')">
+                    Hotel Address is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <div class="row">
+                <div class="col">
+                    <!-- hotel Mobile -->
+
+                    <mat-form-field class="example-full-width">
+                        <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon"
+                            fontIcon="phone"></mat-icon>
+                        <mat-label>Hotel Mobile</mat-label>
+                        <input matInput placeholder="Hotel Mobile" formControlName='hotelMobile' maxlength="10">
+                        <mat-error
+                            *ngIf="hotelForm.get('hotelMobile')?.hasError('minlength') && !hotelForm.get('hotelMobile')?.hasError('pattern') && !hotelForm.get('hotelMobile')?.hasError('required')">
+                            Enter <strong>10 digits </strong>mobile number
+                        </mat-error>
+                        <mat-error
+                            *ngIf="hotelForm.get('hotelMobile')?.hasError('pattern') && !hotelForm.get('hotelMobile')?.hasError('required')">
+                            Enter <strong>Valid mobile number</strong>
+                        </mat-error>
+                        <mat-error *ngIf="hotelForm.get('hotelMobile')?.hasError('required')">
+                            Hotel Mobile Number is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <!-- roomAvailable -->
+
+                    <mat-form-field class="example-full-width">
+                        <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon"
+                            fontIcon="hotel"></mat-icon>
+                        <mat-label>Rooms Available</mat-label>
+                        <input matInput placeholder="Rooms Available" formControlName='roomAvailable'>
+                        <mat-error
+                            *ngIf="hotelForm.get('roomAvailable')?.hasError('pattern') && !hotelForm.get('roomAvailable')?.hasError('required')">
+                            Enter <strong>valid number</strong> of rooms available
+                        </mat-error>
+                        <mat-error *ngIf="hotelForm.get('roomAvailable')?.hasError('required')">
+                            Rooms Available is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+
+
+            <!-- hotelMenu -->
+            <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon" fontIcon="restaurant"></mat-icon>
+            <label id="example-radio-group-label">Menu : </label>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                formControlName="hotelMenu">
+                <mat-radio-button class="example-radio-button" *ngFor="let menu of menus" [value]="menu">
+                    {{menu}}
+                </mat-radio-button>
+            </mat-radio-group>
+
+            <!-- ownerPass -->
+
+            <mat-form-field class="example-full-width">
+                <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon" fontIcon="phone"></mat-icon>
+                <mat-label>Owner Pass</mat-label>
+                <input matInput placeholder="Owner Pass" formControlName='ownerPass'>
+                <mat-error
+                    *ngIf="hotelForm.get('ownerPass')?.hasError('minlength') && !hotelForm.get('ownerPass')?.hasError('required')">
+                    Enter <strong> Minimum 6 characters</strong> of strong password
+                </mat-error>
+                <mat-error *ngIf="hotelForm.get('ownerPass')?.hasError('required')">
+                    Owner Password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <div mat-dialog-actions class="row">
+                <div class="col">
+                    <button mat-raised-button color="warn" mat-dialog-close class="w-100">Cancel</button>
+                </div>
+                <div class="col">
+                    <button *ngIf="!hotelUpdate" [disabled]="!hotelForm.valid" mat-dialog-close class="btn btn-success w-100" (click)="submit()">Submit</button>
+                    <button *ngIf="hotelUpdate" [disabled]="!hotelForm.valid" mat-dialog-close class="btn btn-success w-100" (click)="update()">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

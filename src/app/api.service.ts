@@ -22,9 +22,14 @@ export class ApiService {
     return this.httpClient.get(url)
   }
 
-  deleteApi(){
-    let url = this.url + this.ds.journey
+  deleteApi(id:any){
+    let url = this.url + this.ds.journey +'/'+id
     return this.httpClient.delete(url)
+  }
+
+  patchApi(id:any, data:any){
+    let url = this.url + this.ds.journey
+    return this.httpClient.patch(url,data)
   }
 }
 

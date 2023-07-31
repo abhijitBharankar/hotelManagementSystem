@@ -7,8 +7,14 @@ import { Router } from '@angular/router';
 export class DataService {
 
   journey!: string
+  ownerUsername : any
+  ownerMobile: any;
+  ownerPassword : any
+  editHotel! :any
+  hotelUpdate : any;
+  updateHotelId! :any
   constructor(private router : Router) { }
-
+  
   goToLogin(){
     // this.journey = endpoint
     this.router.navigateByUrl('/'+this.journey+'/login')

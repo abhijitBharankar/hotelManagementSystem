@@ -7,34 +7,40 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      
-      
+
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       </ul>
+
+      <!-- login or register -->
+      <button [matMenuTriggerFor]="menu" class="btn btn-success dropdown-toggle">Login or Register</button>
+      <div class="loginButtons">
+        <mat-menu #menu="matMenu">
+          <mat-list>
+            <mat-list-item class="text-primary">
+              <button mat-menu-item (click)="admin()">Login as ADMIN</button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              <button mat-menu-item (click)="owner()">Login as OWNER</button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              <button mat-menu-item (click)="user()">Login as USER</button>
+            </mat-list-item>
+          </mat-list>
+        </mat-menu>
+      </div>
       
-        <!-- login or register -->
-        <div class="btn-group">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            Login or Register
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </div>
+<!-- 
+      <button class="btn btn-success mx-2" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        (click)="admin()">Admin</button>
 
-        <button class="btn btn-success mx-2" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          (click)="admin()">Admin</button>
+      <button class="btn btn-warning mx-2" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        (click)="owner()">Owner</button>
 
-        <button class="btn btn-warning mx-2" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          (click)="owner()">Owner</button>
-
-        <button class="btn btn-primary mx-2" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          (click)="user()">User</button>
+      <button class="btn btn-primary mx-2" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        (click)="user()">User</button> -->
 
     </div>
   </div>

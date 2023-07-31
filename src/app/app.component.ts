@@ -8,6 +8,7 @@ import { DataService } from './common/data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'HotelManagementSystem';
 
   constructor(private router: Router, private ds: DataService){

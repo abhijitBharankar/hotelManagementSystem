@@ -1,1 +1,38 @@
-<p>home works!</p>
+<div class="container top text-center">
+    <button class="btn btn-primary" (click)="openRegisterForm()">New Hotel Registration</button>
+</div>
+<div class="text-center my-4">
+    <h1 class="display-3 text-primary">My hotel lists</h1>
+    <mat-error *ngIf="hotelLists.length == 0">Records not found. Register new hotel.</mat-error>
+    <div class="container hotelTable mb-4">
+        <table *ngIf="hotelLists.length != 0">
+            <thead>
+                <th *ngFor="let key of keys">
+                    {{key}}
+                </th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hotel of hotelLists">
+                    <td>{{hotel.ownerUsername}}</td>
+                    <td>{{hotel.ownerMobile}}</td>
+                    <td>{{hotel.hotelName}}</td>
+                    <td>{{hotel.hotelAddress}}</td>
+                    <td>{{hotel.hotelMobile}}</td>
+                    <td>{{hotel.hotelMenu}}</td>
+                    <td>{{hotel.roomAvailable}}</td>
+                    <td>
+                        <div class="actionButtons">
+                            <button mat-fab color="warn" class="mx-2"
+                                aria-label="Example icon button with a delete icon" (click)="delete(hotel.id)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                            <button mat-fab color="primary" class="mx-2"
+                                aria-label="Example icon button with a delete icon" (click)="edit(hotel.id)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
